@@ -1,4 +1,5 @@
 #include "Battle.hpp"
+#include <string>
 #include <random>
 #include <chrono>
 unsigned seed_battle = std::chrono::system_clock::now().time_since_epoch().count();
@@ -8,12 +9,12 @@ std::uniform_int_distribution<int> type_attack(0,1);
 
 void Battle::init()
 {   
-    life_hud = new ObjetoDeJogo("Life Hud", Sprite("../rsc/sprite_life_hud.spr"), 0, 0);
-    objs.push_back(life_hud);
-    life_value = new ObjetoDeJogo("Life Value", TextSprite(""), 2, 14);
+    life_value = new ObjetoDeJogo("Life Value", TextSprite("VIDA: "), 2, 14);
     objs.push_back(life_value);
+
     enemies[0] = new Character(ObjetoDeJogo("Cat", SpriteAnimado("../rsc/sprite_cat.anm"), 20, 45), 50, 60, 20, 60, 20);
     objs.push_back(enemies[0]);
+
     enemies[1] = new Character(ObjetoDeJogo("Cat", SpriteAnimado("../rsc/sprite_cat.anm"), 20, 45), 50, 60, 20, 60, 20);
     objs.push_back(enemies[1]);
 
@@ -39,8 +40,11 @@ unsigned Battle::run()
     int key = 0;
     option = 0;
     value_option_enemy = 0;
+
+    *life_value = ObjetoDeJogo("Life Value", TextSprite("VIDA: " + std::to_string(player->getLife())), 2, 14);
+
     option_menu->moveTo(45, (46 + 46*option - 7*option +5*option%2));
-    option_enemy->moveTo((enemies[value_option_enemy]->getSprite()->getAltura()) -3, 40 + (enemies[value_option_enemy]->getSprite()->getLargura())/2 + value_option_enemy*57);
+    option_enemy->moveTo(4, value_option_enemy*50 + 65);
 
     enemies[0]->moveTo(30 - (enemies[0]->getSprite()->getAltura()), 45);
     enemies[1]->moveTo(30 - (enemies[1]->getSprite()->getAltura()), 100);
@@ -49,6 +53,7 @@ unsigned Battle::run()
     showText(enemies[0]->getName() + " e " + enemies[1]->getName() + " apareceram!");
 
     while(true){
+        *life_value = ObjetoDeJogo("Life Value", TextSprite("VIDA: " + std::to_string(player->getLife())), 2, 14);
 
         key = getch();
         
@@ -60,9 +65,6 @@ unsigned Battle::run()
         {
             (option-1 < 0)? option = 2 : option--;
         }
-
-        else if(key == KEY_Q) exit(0);
-
         else if(key == KEY_X)
         {
             if(option == 0 || option == 1)
@@ -88,7 +90,7 @@ unsigned Battle::run()
                         (value_option_enemy-1 < 0)? value_option_enemy = 1 : value_option_enemy--;
                     }
                     else if(key == KEY_Q) break;
-                    option_enemy->moveTo((enemies[value_option_enemy]->getSprite()->getAltura()) -3, 40 + (enemies[value_option_enemy]->getSprite()->getLargura())/2 + value_option_enemy*57);
+                    option_enemy->moveTo(4, value_option_enemy*50 + 65);
                     clearScreen();
                 }
                 option_enemy->desativarObj();

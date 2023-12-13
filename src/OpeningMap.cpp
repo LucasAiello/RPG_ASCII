@@ -32,11 +32,13 @@ void OpeningMap::init()
 	objs.push_back(sign);
     colisons.push_back(sign);
 
-	sign_text = new Texts(ObjetoDeJogo("Sign Text", Sprite("../rsc/sprite_action.spr"), 23, 172), {"VILA XXXX -->", "DEVE SER POR AQUI..."});
+	sign_text = new Texts(ObjetoDeJogo("Sign Text", Sprite("../rsc/sprite_action.spr"), 23, 172));
+	sign_text->readfile("../rsc/Texts/OP_M_Sign.txt");
 	objs.push_back(sign_text);
 	texts.push_back(sign_text);
 
-	house_text = new Texts(ObjetoDeJogo("House Text", Sprite("../rsc/sprite_action.spr"), 20, 43), {"???: Saia daqui!"});
+	house_text = new Texts(ObjetoDeJogo("House Text", Sprite("../rsc/sprite_action.spr"), 20, 43));
+	house_text->readfile("../rsc/Texts/OP_M_Door.txt");
 	objs.push_back(house_text);
 	texts.push_back(house_text);
     

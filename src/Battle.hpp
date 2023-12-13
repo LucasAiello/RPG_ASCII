@@ -40,7 +40,6 @@ class Battle : public Fase
         SpriteBuffer screen;
         ObjetoDeJogo *text;
         ObjetoDeJogo *dialogue_box;
-        ObjetoDeJogo *life_hud;
         ObjetoDeJogo *life_value;
         int option;
         int value_option_enemy;
