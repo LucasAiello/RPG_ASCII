@@ -17,7 +17,7 @@ class VillageMap_F : public Map
         virtual unsigned run();
 
     private:
-
+        Texts *npc_texts;
         ObjetoDeJogo *wall_trees[4];
         ObjetoDeJogo *tombstones[8];
         ObjetoDeJogo *tombstones_top[8];

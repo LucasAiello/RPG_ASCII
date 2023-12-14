@@ -17,10 +17,11 @@ class VillageMap_H : public Map
         virtual unsigned run();
 
     private:
-
+        ObjetoDeJogo *npc;
+        Texts *npc_texts;
+        ObjetoDeJogo *houses[2];
         ObjetoDeJogo *wall_trees[4];
         ObjetoDeJogo *north_entrance;
-        ObjetoDeJogo *east_entrance;
         ObjetoDeJogo *west_entrance;
         
 };

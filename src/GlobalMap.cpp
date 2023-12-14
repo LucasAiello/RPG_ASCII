@@ -3,14 +3,18 @@
 #include <mmsystem.h>
 
 void GlobalMap::init(){
-    std::string background = "../rsc/bg1.spr";
+    std::string background = "../rsc/Sprites/bg1.spr";
     Battle* battle = new Battle("Battle", Sprite(background), screen, player);
     battle->init();
+    
+    maps[TITLE] = new Title("Begin", Sprite("../rsc/Sprites/bg0.spr"), screen);
+    maps[TITLE]->init();
+
+    maps[GAME_OVER] = new GameOver("Game Over", Sprite("../rsc/Sprites/bg3.spr"), screen);
+    maps[GAME_OVER]->init();
 
     maps[OPENING] = new OpeningMap("Begin", Sprite(background), screen, player, battle);
     maps[OPENING]->init();
-    maps[VILLAGE_A] = new VillageMap_A("Village A", Sprite(background), screen, player, battle);
-    maps[VILLAGE_A]->init();
 
     maps[VILLAGE_B] = new VillageMap_B("Village B", Sprite(background), screen, player, battle);
     maps[VILLAGE_B]->init();
@@ -32,19 +36,16 @@ void GlobalMap::init(){
 
     maps[VILLAGE_H] = new VillageMap_H("Village H", Sprite(background), screen, player, battle);
     maps[VILLAGE_H]->init();
-
-    maps[VILLAGE_I] = new VillageMap_I("Village I", Sprite(background), screen, player, battle);
-    maps[VILLAGE_I]->init();
 }
 
 unsigned  GlobalMap::run()
 {   
-    unsigned map = OPENING;
+    unsigned map = TITLE;
 
     while (map != GAME_OVER)
     {
         map = maps[map]->run();
-        //PlaySound(TEXT("../rsc/beep.wav"), NULL, SND_FILENAME);
+        //PlaySound(TEXT("../rsc/Sprites/beep.wav"), NULL, SND_FILENAME);
     }
 
     return 1;

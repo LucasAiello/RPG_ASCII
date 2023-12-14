@@ -16,7 +16,9 @@ class VillageMap_E : public Map
         virtual unsigned run();
 
     private:
-
+        Map *rest_house;
+        ObjetoDeJogo *house;
+        ObjetoDeJogo *house_entrance;
         ObjetoDeJogo *wall_trees[4];
         ObjetoDeJogo *north_entrance;
         ObjetoDeJogo *south_entrance;

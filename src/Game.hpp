@@ -14,11 +14,11 @@ public:
 	static void run()
 	{
 		
-		Player *player = new Player(Character(ObjetoDeJogo("Player", SpriteAnimado("../rsc/sprite_player.anm", 3), 24, 24), 500, 50, 30 , 30, 50));
+		Player *player = new Player(Character(ObjetoDeJogo("Player", SpriteAnimado("../rsc/Sprites/sprite_player.anm", 3), 24, 24), 500, 50, 30 , 30, 50));
 
 		SpriteBuffer buffer(200,50);
 	
-		GlobalMap global ("Global", Sprite("../rsc/bg1.spr"), buffer, player);
+		GlobalMap global ("Global", Sprite("../rsc/Sprites/bg1.spr"), buffer, player);
         
 		
 		global.init();

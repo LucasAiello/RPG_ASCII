@@ -4,19 +4,19 @@ void VillageMap_B::init()
 {
 	// First Layer -----------------------------------------------------------------------------------
 
-    wall_trees[0] = new ObjetoDeJogo("Wall1", Sprite("../rsc/sprite_horizontal_wall_tree.spr"), 0, 0);
+    wall_trees[0] = new ObjetoDeJogo("Wall1", Sprite("../rsc/Sprites/sprite_horizontal_wall_tree.spr"), 0, 0);
     objs.push_back(wall_trees[0]);
     colisons.push_back(wall_trees[0]);
 
-    wall_trees[1] = new ObjetoDeJogo("Wall2", Sprite("../rsc/sprite_vertical_wall_tree.spr"), 5, 0);
+    wall_trees[1] = new ObjetoDeJogo("Wall2", Sprite("../rsc/Sprites/sprite_vertical_wall_tree.spr"), 5, 0);
 	objs.push_back(wall_trees[1]);
     colisons.push_back(wall_trees[1]);
 
-	wall_trees[2] = new ObjetoDeJogo("Wall3", Sprite("../rsc/sprite_vertical_wall_tree.spr"), 5, 184);
+	wall_trees[2] = new ObjetoDeJogo("Wall3", Sprite("../rsc/Sprites/sprite_vertical_wall_tree.spr"), 5, 184);
 	objs.push_back(wall_trees[2]);
     colisons.push_back(wall_trees[2]);
 
-	wall_trees[3] = new ObjetoDeJogo("Wall4", Sprite("../rsc/sprite_horizontal_wall_tree2.spr"), 47, 0);
+	wall_trees[3] = new ObjetoDeJogo("Wall4", Sprite("../rsc/Sprites/sprite_horizontal_wall_tree2.spr"), 47, 0);
 	objs.push_back(wall_trees[3]);
     colisons.push_back(wall_trees[3]);
     
@@ -24,24 +24,20 @@ void VillageMap_B::init()
 	
 	// Second Layer -----------------------------------------------------------------------------------
 
-	wall_trees[4] = new ObjetoDeJogo("Wall4 Top", Sprite("../rsc/sprite_horizontal_wall_tree2_top.spr"), 42, 0);
+	wall_trees[4] = new ObjetoDeJogo("Wall4 Top", Sprite("../rsc/Sprites/sprite_horizontal_wall_tree2_top.spr"), 42, 0);
 	objs.push_back(wall_trees[4]);
 
-	east_entrance = new ObjetoDeJogo("East Entrance", Sprite("../rsc/sprite_vertical_entrance.spr"), 24, 184);
+	east_entrance = new ObjetoDeJogo("East Entrance", Sprite("../rsc/Sprites/sprite_vertical_entrance.spr"), 24, 184);
 	objs.push_back(east_entrance);
     colisons.push_back(east_entrance);
 
-	west_entrance = new ObjetoDeJogo("West Entrance", Sprite("../rsc/sprite_vertical_entrance.spr"), 24, 0);
-	objs.push_back(west_entrance);
-    colisons.push_back(west_entrance);
-
-    south_entrance = new ObjetoDeJogo("South Entrance", Sprite("../rsc/sprite_horizontal_entrance.spr"), 42, 93);
+    south_entrance = new ObjetoDeJogo("South Entrance", Sprite("../rsc/Sprites/sprite_horizontal_entrance.spr"), 42, 93);
 	objs.push_back(south_entrance);
     colisons.push_back(south_entrance);
 
 	// Third Layer (HUD) -----------------------------------------------------------------------------------
 
-	dialogue_box = new ObjetoDeJogo("Dialogue Box", Sprite("../rsc/sprite_dialogue_box.spr"), 41, 20);
+	dialogue_box = new ObjetoDeJogo("Dialogue Box", Sprite("../rsc/Sprites/sprite_dialogue_box.spr"), 41, 20);
 	objs.push_back(dialogue_box);
 	dialogue_box->desativarObj();
 
@@ -89,11 +85,7 @@ unsigned VillageMap_B::run()
 			player->moveTo(7, 100);
 			return VILLAGE_E;
 		}
-		if(player->colideCom(*west_entrance))
-		{
-			player->moveTo(24, 170);
-			return VILLAGE_A;
-		}
+		
 		if (player->colideCom(*east_entrance))
 		{
 			player->moveTo(24,20);

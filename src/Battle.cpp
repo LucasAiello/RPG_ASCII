@@ -12,21 +12,21 @@ void Battle::init()
     life_value = new ObjetoDeJogo("Life Value", TextSprite("VIDA: "), 2, 14);
     objs.push_back(life_value);
 
-    enemies[0] = new Character(ObjetoDeJogo("Cat", SpriteAnimado("../rsc/sprite_cat.anm"), 20, 45), 50, 60, 20, 60, 20);
+    enemies[0] = new Character(ObjetoDeJogo("Cat", SpriteAnimado("../rsc/Sprites/sprite_cat.anm"), 20, 45), 50, 60, 20, 60, 20);
     objs.push_back(enemies[0]);
 
-    enemies[1] = new Character(ObjetoDeJogo("Cat", SpriteAnimado("../rsc/sprite_cat.anm"), 20, 45), 50, 60, 20, 60, 20);
+    enemies[1] = new Character(ObjetoDeJogo("Cat", SpriteAnimado("../rsc/Sprites/sprite_cat.anm"), 20, 45), 50, 60, 20, 60, 20);
     objs.push_back(enemies[1]);
 
-    menu = new ObjetoDeJogo("Battle Menu", Sprite("../rsc/sprite_battle_menu.spr"), 38, 30);
+    menu = new ObjetoDeJogo("Battle Menu", Sprite("../rsc/Sprites/sprite_battle_menu.spr"), 38, 30);
     objs.push_back(menu);
-    option_menu = new ObjetoDeJogo("Battle Menu", Sprite("../rsc/sprite_option_menu.spr"), 45, 44);
+    option_menu = new ObjetoDeJogo("Battle Menu", Sprite("../rsc/Sprites/sprite_option_menu.spr"), 45, 44);
     objs.push_back(option_menu);
 
-    option_enemy = new ObjetoDeJogo("Option Enemy", Sprite("../rsc/sprite_option_enemy.spr"), 11, 58);
+    option_enemy = new ObjetoDeJogo("Option Enemy", Sprite("../rsc/Sprites/sprite_option_enemy.spr"), 11, 58);
     objs.push_back(option_enemy);
 
-    dialogue_box = new ObjetoDeJogo("Dialogue Box", Sprite("../rsc/sprite_dialogue_box.spr"), 41, 20);
+    dialogue_box = new ObjetoDeJogo("Dialogue Box", Sprite("../rsc/Sprites/sprite_dialogue_box.spr"), 41, 20);
 	objs.push_back(dialogue_box);
 	dialogue_box->desativarObj();
 
@@ -111,7 +111,7 @@ unsigned Battle::run()
         }
 
         if(!enemies[0]->isAlive() && !enemies[1]->isAlive()) return 1;
-        if(!player->isAlive()) return 0;
+        if(!player->isAlive()) return GAME_OVER;
 
         option_menu->moveTo(45, (46 + 46*option - 7*option +5*option%2));
 

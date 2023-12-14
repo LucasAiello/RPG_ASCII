@@ -19,7 +19,6 @@ class VillageMap_B : public Map
 
         ObjetoDeJogo *wall_trees[4];
         ObjetoDeJogo *south_entrance;
-        ObjetoDeJogo *west_entrance;
         ObjetoDeJogo *east_entrance;
         
 };

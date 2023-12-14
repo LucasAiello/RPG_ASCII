@@ -2,6 +2,8 @@
 #define __MAP__
 #include <windows.h>
 #include <mmsystem.h>
+#include <random>
+#include <chrono>
 #include <stdlib.h>
 #include "ASCII_Engine/Fase.hpp"
 #include "Player.hpp"

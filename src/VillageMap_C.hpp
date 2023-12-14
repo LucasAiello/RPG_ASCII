@@ -16,7 +16,8 @@ class VillageMap_C : public Map
         virtual unsigned run();
 
     private:
-
+        Texts *npc_texts;
+        ObjetoDeJogo *well;
         ObjetoDeJogo *wall_trees[4];
         ObjetoDeJogo *south_entrance;
         ObjetoDeJogo *west_entrance;

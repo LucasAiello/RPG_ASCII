@@ -1,8 +1,9 @@
 #ifndef __GLOBAL_MAP__
 #define __GLOBAL_MAP__
 #include "ASCII_Engine/Fase.hpp"
+#include "Title.hpp"
+#include "GameOver.hpp"
 #include "OpeningMap.hpp"
-#include "VillageMap_A.hpp"
 #include "VillageMap_B.hpp"
 #include "VillageMap_C.hpp"
 #include "VillageMap_D.hpp"
@@ -10,7 +11,6 @@
 #include "VillageMap_F.hpp"
 #include "VillageMap_G.hpp"
 #include "VillageMap_H.hpp"
-#include "VillageMap_I.hpp"
 #include "Battle.hpp"
 
 
@@ -29,7 +29,7 @@ class GlobalMap : public Fase
     private:
         SpriteBuffer screen;
         Player *const player;
-        Map* maps[10];
+        Fase* maps[10];
         Battle *battle;
 };
 

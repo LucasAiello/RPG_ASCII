@@ -8,13 +8,20 @@ class Player : public Character
 
     public:
 
-        Player(const Character &chara) : Character(chara), count_keys(0) {}
-        //void setKey(Key *key);
+        Player(const Character &chara) : Character(chara), small_key(false), big_key(false) {}
+        void setLife(unsigned life)
+        {
+            (life > 500)? this->life = 500 : this->life = life;
+        }
+        void setSmallKey(){ small_key = true; }
+        bool getSmallKey(){ return small_key; }
+        void setBigKey(){ big_key = true; }
+        bool getBigKey(){ return big_key; }
         //void removeKey(std::string location);
 
     private:
-        Key *keys[3];
-        int count_keys;
+        bool small_key;
+        bool big_key;
 
 };
 
